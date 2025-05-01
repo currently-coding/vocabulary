@@ -1,5 +1,3 @@
-consequence
-squeeze
 gaming
 derive
 introduce

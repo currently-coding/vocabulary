@@ -48,3 +48,28 @@ a connecting structure: such as, a single ring or division of a chain, one of th
 >>- The link opens in a new tab.
 >>- The link to this file was deleted.
 
+, That which follows something on which it depends; that which is produced by a cause., A result of actions, especially if such a result is unwanted or unpleasant., A proposition collected from the agreement of other previous propositions; any conclusion which results from reason or argument; inference.
+?
+>[!vocab] consequence(noun)
+>**Translations**: Folge, Konsequenz, Ergebnis
+>**Pronunciation**: /ˈkɒnsɪkwɛns/
+>**Audio british**: <audio controls><source src=https://assets.linguee.com/static/29c6282c/mp3/EN_UK/da/da9c3748877e7cc063dea8073b33986d-100.mp3 type="audio/mpeg">Unsupported.</audio>
+>**Audio american**: <audio controls><source src=https://assets.linguee.com/static/29c6282c/mp3/EN_US/da/da9c3748877e7cc063dea8073b33986d-100.mp3 type="audio/mpeg">Unsupported.</audio>
+>>[!Example] Examples
+>>- Effectively, the mistake did not have any consequences.
+>>- A volcanic eruption would have dire consequences.
+
+, To apply pressure to from two or more sides at once., To embrace closely; to give a tight hug to., To fit into a tight place.
+?
+>[!vocab] squeeze(verb)
+>**Translations**: drücken, pressen, quetschen
+>**Forms**: squeezed, squeezed
+>**Pronunciation**: /skwiːz/
+>**Audio british**: <audio controls><source src=https://assets.linguee.com/static/29c6282c/mp3/EN_UK/c6/c695be4ac9d9282355db8c412a4d0a84-200.mp3 type="audio/mpeg">Unsupported.</audio>
+>**Audio american**: <audio controls><source src=https://assets.linguee.com/static/29c6282c/mp3/EN_US/c6/c695be4ac9d9282355db8c412a4d0a84-200.mp3 type="audio/mpeg">Unsupported.</audio>
+>>[!Example] Examples
+>>- She squeezed the tube to get the toothpaste out.
+>>- I am squeezing all my clothes into a tiny suitcase.
+>>- She squeezed some oranges to make juice.
+>>- I am squeezing an orange to get fresh juice.
+

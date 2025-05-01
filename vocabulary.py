@@ -22,6 +22,10 @@ from requests import ConnectionError, get
 # get API key for Merriam-Webster
 load_dotenv()
 api_key = getenv("API_KEY")
+if api_key:
+    use_mw = True
+else:
+    use_mw = False
 
 # Files
 in_filepath = "wordlist.md"
@@ -398,14 +402,18 @@ def main():
         sleep(delay_per_request)
         lin_data = request(url("linguee", word))
         api_data = request(url("api", word))
-        mw_data = request(url("mw", word))
+        if use_mw:
+            mw_data = request(url("mw", word))
+        else:
+            mw_data = None
         # lin data is needed and one of api/mw for the definition
         if not lin_data or (not api_data and mw_data):
             print(f'Failed to retrieve information for "{word}" -> Skipped.')
             continue
         info = process_linguee(lin_data, word)
         process_dictapi(info, api_data, word, info.pos)
-        process_mw(info, mw_data, word, info.pos)
+        if use_mw:
+            process_mw(info, mw_data, word, info.pos)
 
         flashcard = info.to_flashcard()
         flashcards.append(flashcard)
