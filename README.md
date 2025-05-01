@@ -29,9 +29,9 @@ A Python script that generates English vocabulary flashcards in Markdown format 
 - `python-dotenv`
 - `linguee-api` (for local Linguee API server)
 - Environment file with Merriam-Webster API key(`.env`):
-  >[!TIP] Don't have an API key?
-  > It's optional — the script will still work using other sources.
-  > You can register for free at Merriam-Webster API and get a key for the Collegiate Dictionary if you want to enrich your flashcards further."`
+  - Don't have an API key?
+    - It's optional — the script will still work using other sources.
+    - You can register for free at Merriam-Webster API and get a key for the Collegiate Dictionary if you want to enrich your flashcards further."`
 
   - `.env`: `API_KEY="put_your_merriam_webster_collegiate_api_key_here`
 Install dependencies:
