@@ -5,7 +5,7 @@ A Python script that generates English vocabulary flashcards in Markdown format 
 ## ✨ Features
 
 - **Multisource Word Enrichment**:
-  - Translations and examples from [Linguee.com](https://www.linguee.com) using an [unofficial API wrapper](https://linguee-api.fly.dev/docs)
+  - Translations, examples and forms from [Linguee.com](https://www.linguee.com) using an [unofficial API wrapper](https://linguee-api.fly.dev/docs)
   - Definitions and examples from:
     - [Merriam-Webster Collegiate Dictionary](https://www.merriam-webster.com/)
     - [dictionaryapi.dev](https://dictionaryapi.dev/)
@@ -57,13 +57,6 @@ vocabulary.md – Output file where Markdown-formatted flashcards are appended.
 
 .env – File storing your Merriam-Webster API key.
 
-## ⚙️ Configuration
-
-You can tweak the following parameters in the script:
-
-words_per_execution = 2         # how many words are processed per run
-max_num_translations = 3        # limit number of translations per flashcard
-
 ## 🔊 Flashcard Format (Example)
 
-![flashcard_example.png](Example)
+![Example](flashcard_example.png)
