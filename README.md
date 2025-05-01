@@ -34,6 +34,7 @@ A Python script that generates English vocabulary flashcards in Markdown format 
     - You can register for free at Merriam-Webster API and get a key for the Collegiate Dictionary if you want to enrich your flashcards further."`
 
   - `.env`: `API_KEY="put_your_merriam_webster_collegiate_api_key_here`
+
 Install dependencies:
 
 ```bash
