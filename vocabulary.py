@@ -92,7 +92,11 @@ class WordInfo:
         )
         flashcard.append(definition)
         flashcard.append(self.separator)
-        flashcard.append(">[!vocab] " + self.word + "(" + self.pos + ")")
+        if self.pos == "verb":
+            word = "to " + self.word
+        else:
+            word = self.word
+        flashcard.append(">[!vocab] " + word + "(" + self.pos + ")")
         flashcard.append(">**Translations**: " + ", ".join(self.translations[:3]))
         if self.forms:
             flashcard.append(">**Forms**: " + ", ".join(self.forms))
