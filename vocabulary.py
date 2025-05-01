@@ -13,7 +13,7 @@ load_dotenv()
 api_key = os.getenv("API_KEY")
 in_filepath = "wordlist.md"
 out_filepath = "vocabulary.md"
-words_per_execution = 10
+words_per_execution = 2
 max_num_translations = 3
 
 # vars
@@ -81,7 +81,6 @@ class WordInfo:
         flashcard.append(">[!vocab] " + self.word + "(" + self.pos + ")")
         flashcard.append(">**Translations**: " + ", ".join(self.translations[:3]))
         if self.forms:
-            print("forms: ", self.forms)
             flashcard.append(">**Forms**: " + ", ".join(self.forms[0]))
         if self.pronunciation:
             flashcard.append(">**Pronunciation**: " + self.pronunciation)
@@ -98,6 +97,7 @@ class WordInfo:
 
 # start server
 def start_server():
+    print("Staring up server...", end=" ")
     proc = subprocess.Popen(
         ["uvicorn", "linguee_api.api:app"],
         stdout=subprocess.DEVNULL,
@@ -108,7 +108,7 @@ def start_server():
     for _ in range(20):
         try:
             get(lin_base_url)
-            print("Server is running...")
+            print("-> Success")
             break
         except ConnectionError:
             sleep(0.2)
@@ -126,23 +126,24 @@ def stop_server(server):
 
 def request(url):
     while True:
-        print(f"Trying to reach {url}")
+        print(f"Trying to reach {url}", end=" ")
         try:
             response = get(url)
         except ConnectionError:
-            print("Connection failed. Retrying in 5 seconds.")
+            print("-> Connection failed. Retrying in 5 seconds.")
             sleep(5)
             continue
         if response.status_code == 404:
             return None
         if response.status_code == 200:
+            print("-> Success")
             break
-        print(f"Request failed: Status Code <{response.status_code}>.")
+        print(f"->Request failed: Status Code <{response.status_code}>.")
         sleep(5)
     try:
         return response.json()
     except ValueError as e:
-        print("Failed to parse JSON:", e)
+        print("-> Failed.\nFailed to parse JSON:", e)
         print("URL: ", url)
         print("DATA: ", response.text)
         raise e
@@ -201,7 +202,6 @@ def process_linguee(data, word) -> WordInfo:
         to_remove = "https://www.linguee.com/mp3/"
         if audio.get("lang", "") == "British English":
             link = audio.get("url")
-            print("contains: ", to_remove in link)
             if to_remove in link:
                 link = link.replace(to_remove, "")
             result.add_audio("british", link)
@@ -275,14 +275,15 @@ def format_to_flashcard(word):
 
 
 def checkout(lines):
+    print("\n")
     with open(out_filepath, "a") as f:
-        print("Writing to output file...", end="")
+        print(f"Writing {len(lines)} flashcards to output file...", end="")
         for line in lines:
             f.write(line)
             f.write("\n")
         print(" -> Success")
 
-    print("Deleting words from input file...", end="")
+    print(f"Deleting {words_per_execution} words from input file...", end="")
     with open(in_filepath, "r") as fin:
         remaining = fin.readlines()[
             words_per_execution:
@@ -358,7 +359,9 @@ def main():
     try:
         proc = start_server()
     except:
-        print('Setting up server failed.\nDefaulting to "https://linguee-api.fly.dev"')
+        print(
+            '-> Failed.\nSetting up server failed.\nDefaulting to "https://linguee-api.fly.dev"'
+        )
         pass
 
     words = get_words(words_per_execution)
@@ -366,7 +369,7 @@ def main():
     for word in words:
         delay_per_request = randint(1, 5)
         if delay_per_request != 0:
-            print(f"Waiting for {delay_per_request} seconds.")
+            print(f"\nWaiting for {delay_per_request} seconds.\n")
         sleep(delay_per_request)
         lin_data = request(url("linguee", word))
         api_data = request(url("api", word))
