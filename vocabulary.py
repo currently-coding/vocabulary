@@ -32,7 +32,7 @@ in_filepath = "wordlist.md"
 out_filepath = "vocabulary.md"
 
 # Settings
-words_per_execution = 2
+words_per_execution = 1
 # --------
 
 # if server starts succesfully this will change to localhost
@@ -85,10 +85,11 @@ class WordInfo:
 
     def to_flashcard(self) -> str:
         flashcard = []
+        line_break = "<br>"
         definition = (
-            ", ".join(self.definitions_mw[:3])
-            + ", "
-            + ", ".join(self.definitions_api[:3])
+            line_break.join(self.definitions_mw[:3])
+            + line_break
+            + line_break.join(self.definitions_api[:3])
         )
         flashcard.append(definition)
         flashcard.append(self.separator)
@@ -400,7 +401,7 @@ def main():
     words = get_words(words_per_execution)
     flashcards = []
     for word in words:
-        delay_per_request = randint(1, 5)
+        delay_per_request = randint(1, 4)
         if delay_per_request != 0:
             print(f"\nWaiting for {delay_per_request} seconds.\n")
         sleep(delay_per_request)
