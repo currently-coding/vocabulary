@@ -76,7 +76,6 @@ class WordInfo:
         self.translations.append(translation)
 
     def add_forms(self, forms):
-        print(forms)
         if not self.forms:
             self.forms = ""
         if len(forms) >= 2:
@@ -89,8 +88,9 @@ class WordInfo:
                 if forms.startswith("("):
                     forms = forms[1:]
                     forms = forms.replace(")", "", 1)
-
-            self.forms = ", ".join(forms)
+            else:
+                forms = ") (".join(forms)
+            self.forms = forms
 
     def add_audio(self, key, value):
         if not self.audio:
