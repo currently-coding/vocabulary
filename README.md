@@ -77,8 +77,8 @@ API_KEY="your-api-key-here"
 ### 🔌Install Spaced Repetition Plugin
 1. Enable Community Plugins
 	- In Obsidian, go to ⚙️ Settings > Community Plugins
-	- Click Turn on Safe Mode (if it's off)
-	 - Click Browse
+	- Click Turn off Safe Mode (if it's off)
+	- Click Browse
 2. Search and Install:
 	- Type Spaced Repetition
 	- Click Install
